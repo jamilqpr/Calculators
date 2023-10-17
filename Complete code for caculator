@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflation Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .calculator {
+            background-color: #fff;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label, input {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #yearsResult, #finalAmountResult {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Inflation Calculator</h1>
+        <label for="initialAmount">Initial Amount ($):</label>
+        <input type="number" id="initialAmount" placeholder="Enter initial amount">
+        
+        <label for="years">Number of Years:</label>
+        <input type="number" id="years" placeholder="Enter the number of years">
+        
+        <label for="inflationRate">Annual Inflation Rate (%):</label>
+        <input type="number" id="inflationRate" placeholder="Enter annual inflation rate">
+        
+        <button id="calculateButton">Calculate</button>
+        
+        <div id="result">
+            <p>After <span id="yearsResult"></span> years, your money will be worth: $<span id="finalAmountResult"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('calculateButton').addEventListener('click', function () {
+            const initialAmount = parseFloat(document.getElementById('initialAmount').value);
+            const years = parseInt(document.getElementById('years').value);
+            const inflationRate = parseFloat(document.getElementById('inflationRate').value) / 100;
+
+            if (!isNaN(initialAmount) && !isNaN(years) && !isNaN(inflationRate)) {
+                const finalAmount = initialAmount / Math.pow(1 + inflationRate, years);
+                document.getElementById('yearsResult').textContent = years;
+                document.getElementById('finalAmountResult').textContent = finalAmount.toFixed(2);
+            } else {
+                alert('Please enter valid numbers.');
+            }
+        });
+    </script>
+</body>
+</html>
