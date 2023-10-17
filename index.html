@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflation Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Inflation Calculator</h1>
+        <label for="initialAmount">Initial Amount ($):</label>
+        <input type="number" id="initialAmount" placeholder="Enter initial amount">
+        
+        <label for="years">Number of Years:</label>
+        <input type="number" id="years" placeholder="Enter the number of years">
+        
+        <label for="inflationRate">Annual Inflation Rate (%):</label>
+        <input type="number" id="inflationRate" placeholder="Enter annual inflation rate">
+        
+        <button id="calculateButton">Calculate</button>
+        
+        <div id="result">
+            <p>After <span id="yearsResult"></span> years, your money will be worth: $<span id="finalAmountResult"></span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
